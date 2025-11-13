@@ -2,12 +2,12 @@ import pytest
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selene import Browser, Config
+from selene import browser
 
 from utils import attach
 
-@pytest.fixture(scope='function')
-def set_browser(request):
+@pytest.fixture(scope='function', autouse=True)
+def set_browser():
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
@@ -23,7 +23,7 @@ def set_browser(request):
         command_executor="https://user1:1234@selenoid.autotests.cloud/wd/hub",
         options=options)
 
-    browser = Browser(Config(driver=driver))
+    browser.config.driver = driver
     yield browser
 
     attach.add_screenshot(browser)
