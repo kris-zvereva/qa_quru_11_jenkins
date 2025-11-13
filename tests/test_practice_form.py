@@ -2,6 +2,7 @@ import allure
 
 from model.pages.registration_page import RegistrationPage
 
+
 @allure.title('Submit practice registration form with valid data')
 @allure.description('This test verifies that the practice registration form can be successfully submitted with all required fields filled in and displays correct data in the confirmation modal')
 @allure.feature('Registration Form')
