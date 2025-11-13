@@ -2,7 +2,7 @@ import os
 
 from selene import browser, have, command
 
-REGISTRATION_PAGE_URL = '/automation-practice-form'
+REGISTRATION_PAGE_URL = 'https://demoqa.com/automation-practice-form'
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 IMAGE_PATH = os.path.join(CURRENT_DIR, '..', '..', 'resources', 'test_image.png')
 
