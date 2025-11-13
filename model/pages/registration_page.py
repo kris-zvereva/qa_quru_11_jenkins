@@ -38,7 +38,7 @@ class RegistrationPage:
         browser.element(f'label[for="gender-radio-{gender_map[gender]}"]').click()
 
     def fill_phone(self, phone):
-        self.phone_input.type(phone)
+        self.phone_input.type(phone).perform(command.js.scroll_into_view).click()
 
     def fill_dob(self, day, month, year):
         browser.element('[id="dateOfBirthInput"]').click()
@@ -51,7 +51,7 @@ class RegistrationPage:
     def select_hobbies(self, *hobbies):
         hobby_map = {'Sports': '1', 'Reading': '2', 'Music': '3'}
         for hobby in hobbies:
-            browser.element(f'label[for="hobbies-checkbox-{hobby_map[hobby]}"]').click()
+            browser.element(f'label[for="hobbies-checkbox-{hobby_map[hobby]}"]').perform(command.js.scroll_into_view).click()
 
     def fill_subjects(self, subject):
         browser.element('#subjectsInput').type(subject).press_enter()
